@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-
+#include <algorithm>
 using namespace std;
 
 
@@ -16,6 +16,7 @@ long getCardCount(int n, int k, const vector<long long> &cards) {
     while(right >= n - k) {
         sum += cards[right] - cards[left];
         if(sum > ans)
+            //ans = max(ans, sum);
             ans = sum;
         --left;
         --right;
