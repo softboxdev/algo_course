@@ -23,12 +23,12 @@ flowchart TD
     A[Начало] --> B[Вводим n, k, массив arr]
     B --> C[Считаем сумму первых k элементов → window_sum]
     C --> D[Запоминаем window_sum как max_sum]
-    D --> E[Берём правый указатель i = n-1]
-    E --> F[Берём левый указатель j = k-1]
-    F --> G{Цикл пока i >= n-k?}
-    G -->|Да| H[ "window_sum += arr[i] - arr[j]" ]
+    D --> E[Берём правый указатель i = k]
+    E --> F[Берём левый указатель j = 0]
+    F --> G{Цикл пока i < n?}
+    G -->|Да| H["window_sum += arr[i] - arr[j]"]
     H --> I[Обновляем max_sum = max(max_sum, window_sum)]
-    I --> J[i--, j--]
+    I --> J[i++, j++]
     J --> G
     G -->|Нет| K[Выводим max_sum]
     K --> L[Конец]
