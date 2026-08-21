@@ -26,7 +26,7 @@ flowchart TD
     D --> E[Берём правый указатель i = n-1]
     E --> F[Берём левый указатель j = k-1]
     F --> G{Цикл пока i >= n-k?}
-    G -->|Да| H[window_sum += arr[i] - arr[j]]
+    G -->|Да| H[ "window_sum += arr[i] - arr[j]" ]
     H --> I[Обновляем max_sum = max(max_sum, window_sum)]
     I --> J[i--, j--]
     J --> G
