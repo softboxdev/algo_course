@@ -6,22 +6,23 @@ using namespace std;
 
 long getCardCount(int n, int k, const vector<long long> &cards) {
     int sum = 0;
-    for (int i = 0; i < k; ++i) {
-        sum += cards[i];
-        
+    vector<int> prefix(k + 1, 0);
+    for (int i = 1; i <= k; ++i) {
+        prefix[i] = prefix[i-1] + cards[i-1];
     }
-    int ans = sum;
-    int left = k - 1;
-    int right = n - 1;
-    while(right >= n - k) {
-        sum += cards[right] - cards[left];
-        if(sum > ans)
-            //ans = max(ans, sum);
-            ans = sum;
-        --left;
-        --right;
+
+    vector<int> suffix(k+1,0);
+    for(int i = 1; i <= k; ++i) {
+        suffix[i] = suffix[i-1] + cards[n-i];
     }
-    return ans;
+    int max_sum = 0;
+    for(int left_count = 0; left_count <= k; ++left_count) {
+        int right_count = k - left_count;
+        int sum = prefix[left_count] + suffix[right_count];
+        if (sum > max_sum)
+            max_sum = sum;        
+    }
+    return max_sum;
 }
 
 int readInt() {
