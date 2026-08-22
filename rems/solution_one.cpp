@@ -28,3 +28,44 @@ int main() {
     cout << ans << '\n';
     return 0;
 }
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+
+long long getNumberOfGoodPairs(int n, const vector<int>& numbers) {
+
+    vector<long long> count(200, 0);
+    for(int i = 0; i < n; ++i) {
+        int rem = numbers[i] % 200;
+        count[rem] = count[rem] + 1;
+    }
+    long long ans = 0;
+    for (int r = 0; r < 200; ++r) {
+        long long cnt = count[r];
+        ans += cnt * (cnt - 1) / 2;
+    }
+    return ans;
+}
+
+int readInt() {
+    int x;
+    cin >> x;
+    return x;
+}
+
+vector<int> readList(int n) {
+    vector<int> res(n);
+    for (int i = 0; i < n; i++) {
+        cin >> res[i];
+    }
+    return res;
+}
+
+int main() {
+    int n = readInt();
+    vector<int> numbers = readList(n);
+    cout << getNumberOfGoodPairs(n, numbers);
+}
