@@ -102,7 +102,16 @@ python3
 
 Выход: `exit()` или `Ctrl+D`.
 
-**Задание 1.** Создайте файл `hello.py`, который выводит ваше имя и текущую дату (используйте `import datetime`). Запустите его двумя способами: `python3 hello.py` и `./hello.py`.
+**Задание 1.** Создайте файл `hello.py`, который выводит ваше имя и текущую дату (используйте `import datetime`).
+```python
+from datetime import datetime
+today = date.today()
+now = datetime.now()
+print(today)          # формат: YYYY-MM-DD, например 2024-10-05
+print(now)            # формат: YYYY-MM-DD HH:MM:SS.microseconds
+```
+
+Запустите его двумя способами: `python3 hello.py` или `./hello.py`.
 
 ---
 
