@@ -104,7 +104,7 @@ python3
 
 **Задание 1.** Создайте файл `hello.py`, который выводит ваше имя и текущую дату (используйте `import datetime`).
 ```python
-from datetime import datetime
+from datetime import date, datetime
 today = date.today()
 now = datetime.now()
 print(today)          # формат: YYYY-MM-DD, например 2024-10-05
