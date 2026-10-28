@@ -549,35 +549,18 @@ class BST:
         return False
         # return False — не найдено
 
-    def inorder(self, node=None):
+    def inorder(self):
     # def — метод симметричного обхода
     # (self, node=None) — параметры
     # : — двоеточие
-
+        self._inorder(self.root)
+        # self.inorder(self.root) — обход корня
+    def _inorder(self, node):
         if node is None:
-        # if — если node не передан
-        # : — двоеточие
-
-            node = self.root
-            # node = self.root — начинаем с корня
-
-        if node is None:
-        # if — пустое дерево
-        # : — двоеточие
-
             return
-            # return — выход
-
-        self.inorder(node.left)
-        # self.inorder(node.left) — обход левого поддерева
-
+        self._inorder(node.left)
         print(node.value, end=" ")
-        # print — функция вывода
-        # node.value — значение
-        # end=" " — пробел
-
-        self.inorder(node.right)
-        # self.inorder(node.right) — обход правого поддерева
+        self._inorder(node.right)
 
 # Пример
 bst = BST()
