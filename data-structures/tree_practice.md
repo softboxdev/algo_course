@@ -319,7 +319,7 @@ bfs(1)
 import sys
 sys.setrecursionlimit(10**6)
 
-children = [[2, 3], [4, 5], [6], [], [], []]
+children = [[1, 2], [3, 4], [5], [], [], []]
 # children — список детей (0-based)
 # children[0] = [2, 3] — дети вершины 1 (индекс 0)
 # ... — остальные
@@ -379,7 +379,7 @@ for i in range(n):
 # in range(n) — от 0 до n-1
 # : — двоеточие
 
-    print(f"Вершина {i + 1}: размер={size[i]}, высота={height[i]}")
+    print(f"Вершина {i}: размер={size[i]}, высота={height[i]}")
     # print — функция вывода
     # f"..." — f-строка
     # {i + 1} — номер вершины (1-based)
