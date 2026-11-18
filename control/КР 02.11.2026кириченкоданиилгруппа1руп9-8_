@@ -1,0 +1,61 @@
+кириченко даниил 1руп9-8
+
+1)б
+2)в
+3)г
+4)в
+5)в
+6)в
+7)б
+8)б
+9)а
+10)б
+часть 2
+1)---------------------------------------------------------------------------------------------------------------------
+a = [4, 8, 15, 16, 23, 42]
+first = a[0]
+last = a[-1]
+total_sum = sum(a)
+maximum = max(a)
+minimum = min(a)
+reversed_list = a[::-1]
+even_count = sum(1 for num in a if num% 2 == 0)
+print(f"Первый: {first}")
+print(f"Последний: {last}")
+print(f"Сумма: {total_sum}")
+print(f"Максимум: {maximum}")
+print(f"Минимум: {minimum}")
+print(f"Обратный: {reversed_list}")
+print(f"Чётных: {even_count}")
+2)--------------------------------------------------------------------------------------------------------------------
+stack = []
+stack.append(5)
+stack.append(10)
+stack.append(15)
+top_element = stack[-1]
+print(f"Верхний элемент: {top_element}")
+popped_element = stack.pop()
+print(f"Извлечён: {popped_element}")
+print(f"Стек после pop: {stack}")
+print(f"Размер стека: {len(stack)}")
+3)---------------------------------------------------------------------------------------------------------------------
+def check_brackets(s: str) -> bool:
+    matching = {')': '(', ']': '[', '}': '{'}
+    stack = []
+    for char in s:
+        if char in "([{":
+            stack.append(char)
+        elif char in ")]}":
+            if not stack:
+                return False
+            if stack[-1] != matching[char]:
+                return False
+            stack.pop()
+        else:
+            return False
+    return len(stack) == 0
+user_input = input("Ввод: ")
+if check_brackets(user_input):
+    print("Правильно")
+else:
+    print("Неправильно")
